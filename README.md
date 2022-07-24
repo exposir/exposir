@@ -1,4 +1,4 @@
-### Hi there 👋
+### “Cosmic Cliffs” in the Carina Nebula 
 
 <!--
 **exposir/exposir** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -14,3 +14,5 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+![FXejWiFXkAEBQRP](https://user-images.githubusercontent.com/33340988/180632936-7e409e18-91c9-4e3f-a60f-aba862b65520.jpeg)
