@@ -2,7 +2,7 @@
 
 
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=exposir&theme=transparent&show_icons=true)
+![Exposir's GitHub stats](https://github-readme-stats.vercel.app/api?username=exposir&theme=transparent&show_icons=true)
 
 
 
