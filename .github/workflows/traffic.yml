@@ -2,7 +2,7 @@ name: Traffic Counter
 
 on:
   schedule:
-    - cron: "55 23 * * *" # Run just before midnight UTC
+    - cron: "0 * * * *" # Run every hour
   workflow_dispatch:
 
 jobs:
