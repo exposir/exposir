@@ -49,5 +49,6 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:800080,100:0000ff&height=120&section=footer&text=Exposir&fontSize=40&fontColor=ffffff&animation=fadeIn" />
   <br/>
   <br/>
-  <img src="https://komarev.com/ghpvc/?username=exposir&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Visitor Counter" />
+  <!-- Self-hosted Traffic Stats (Requires TRAFFIC_TOKEN) -->
+  <img src="./traffic-stat.svg" alt="Traffic Stats" />
 </div>
