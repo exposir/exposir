@@ -34,15 +34,15 @@
 <div align="center">
   <h3>📊 GitHub Stats</h3>
   <a href="https://github.com/exposir">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=exposir&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=exposir&layout=compact&theme=tokyonight"/>
+    <img src="https://github-readme-stats.vercel.app/api?username=exposir&show_icons=true&theme=tokyonight" height="180" alt="GitHub Stats" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=exposir&layout=compact&theme=tokyonight" height="180" alt="Top Langs" />
   </a>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=exposir&theme=tokyonight&hide_border=true" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=exposir&theme=tokyonight&hide_border=true" alt="Streak Stats" />
 </div>
 
 <br/>
@@ -50,7 +50,7 @@
 <div align="center">
   <h3>🏆 Trophies</h3>
   <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=exposir&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4" />
+    <img src="https://github-profile-trophy.vercel.app/?username=exposir&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4" alt="Trophies" />
   </a>
 </div>
 
