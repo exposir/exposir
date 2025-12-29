@@ -32,7 +32,7 @@
 <br/>
 
 <div align="center">
-  <h3>📊 GitHub Stats (3D)</h3>
+  <h3>📊 GitHub Stats</h3>
   <img src="./profile-3d-contrib/profile-night-rainbow.svg" alt="3D Contribution Graph" />
 </div>
 
