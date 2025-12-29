@@ -1,20 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="20">
-    <linearGradient id="b" x2="0" y2="100%">
-      <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
-      <stop offset="1" stop-opacity=".1"/>
+<svg width="280" height="45" viewBox="0 0 280 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Glow Effect -->
+  <rect width="280" height="45" rx="8" fill="#0D1117" stroke="#2c2c2c" stroke-width="1"/>
+  <rect x="1" y="1" width="278" height="43" rx="7" fill="url(#cosmic_gradient)" />
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="cosmic_gradient" x1="0" y1="0" x2="280" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#161b22"/>
+      <stop offset="1" stop-color="#0d1117"/>
     </linearGradient>
-    <mask id="a">
-      <rect width="220" height="20" rx="3" fill="#fff"/>
-    </mask>
-    <g mask="url(#a)">
-      <rect width="90" height="20" fill="#555"/>
-      <rect x="90" width="130" height="20" fill="#007ec6"/>
-      <rect width="220" height="20" fill="url(#b)"/>
-    </g>
-    <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-      <text x="46" y="15" fill="#010101" fill-opacity=".3">Traffic</text>
-      <text x="46" y="14">Traffic</text>
-      <text x="154" y="15" fill="#010101" fill-opacity=".3">3 views</text>
-      <text x="154" y="14">3 views</text>
-    </g>
-  </svg>
+    <linearGradient id="text_gradient" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0" stop-color="#e0e0e0"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Eye Icon -->
+  <path d="M22 22.5C22 22.5 27 13 38 13C49 13 54 22.5 54 22.5C54 22.5 49 32 38 32C27 32 22 22.5 22 22.5Z" stroke="#8B949E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 26C39.933 26 41.5 24.433 41.5 22.5C41.5 20.567 39.933 19 38 19C36.067 19 34.5 20.567 34.5 22.5C34.5 24.433 36.067 26 38 26Z" stroke="#8B949E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Divider -->
+  <line x1="70" y1="10" x2="70" y2="35" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Labels & Numbers -->
+  <g font-family="'Segoe UI', Ubuntu, Sans-Serif" font-weight="600">
+    <!-- Total Views -->
+    <text x="85" y="19" font-size="10" fill="#8b949e">TOTAL VIEWS</text>
+    <text x="85" y="34" font-size="16" fill="url(#text_gradient)">3</text>
+    
+    <!-- Uniques -->
+    <text x="180" y="19" font-size="10" fill="#8b949e">UNIQUES</text>
+    <text x="180" y="34" font-size="16" fill="#58a6ff">2</text>
+  </g>
+</svg>
