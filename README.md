@@ -38,17 +38,16 @@
 
 <br/>
 
-<!--
 <div align="center">
-  <h3>🏆 Trophies</h3>
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=exposir&theme=tokyonight&no-frame=true&no-bg=true&margin-w=4" alt="Trophies" />
-  </a>
+  <h3>🐍 Contribution Snake</h3>
+  <img src="https://raw.githubusercontent.com/exposir/exposir/output/github-contribution-grid-snake-dark.svg" alt="Snake Animation" />
 </div>
--->
 
 <br/>
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:800080,100:0000ff&height=120&section=footer&text=Exposir&fontSize=40&fontColor=ffffff&animation=fadeIn" />
+  <br/>
+  <br/>
+  <img src="https://komarev.com/ghpvc/?username=exposir&label=Profile%20Views&color=blueviolet&style=flat-square" alt="Visitor Counter" />
 </div>
