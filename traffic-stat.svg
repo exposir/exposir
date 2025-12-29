@@ -1,68 +1,59 @@
-<svg width="320" height="60" viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="800" height="120" viewBox="0 0 800 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    @keyframes scan {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0.2; }
-    }
-    .text-glow {
-      text-shadow: 0 0 2px #00f3ff, 0 0 5px #00f3ff;
-    }
-    .border-glow {
-      filter: drop-shadow(0 0 2px #00f3ff);
-    }
+    .t-glow { text-shadow: 0 0 5px #00f3ff; }
+    .p-glow { filter: drop-shadow(0 0 4px #bd00ff); }
+    .bg-anim { animation: pulse 4s infinite alternate; }
+    @keyframes pulse { 0% { opacity: 0.1; } 100% { opacity: 0.3; } }
+    @keyframes spin { 0% { transform: rotate(0deg); transform-origin: 400px 60px; } 100% { transform: rotate(360deg); transform-origin: 400px 60px; } }
+    @keyframes dash { to { stroke-dashoffset: 0; } }
   </style>
 
-  <!-- Background Base -->
-  <rect x="2" y="2" width="316" height="56" fill="#050a10" stroke="none" />
+  <!-- Base Background -->
+  <rect width="800" height="120" rx="10" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
   
-  <!-- Holographic Grid Pattern -->
+  <!-- Cyber Grid Background -->
+  <path d="M0 20 H800 M0 40 H800 M0 60 H800 M0 80 H800 M0 100 H800" stroke="#30363d" stroke-width="0.5" stroke-opacity="0.3"/>
+  <path d="M200 0 V120 M400 0 V120 M600 0 V120" stroke="#30363d" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <!-- Center Core (Reactor) -->
+  <circle cx="400" cy="60" r="40" stroke="#30363d" stroke-width="1" fill="#0d1117"/>
+  <circle cx="400" cy="60" r="35" stroke="#00f3ff" stroke-width="2" stroke-dasharray="10 10" style="animation: spin 10s linear infinite; opacity: 0.3"/>
+  <circle cx="400" cy="60" r="25" fill="#00f3ff" fill-opacity="0.1" class="bg-anim"/>
+  <text x="400" y="64" text-anchor="middle" font-family="monospace" font-size="10" fill="#00f3ff" letter-spacing="2">CORE</text>
+
+  <!-- Left Module: Stats Big Display -->
+  <g transform="translate(40, 0)">
+     <rect x="0" y="20" width="3" height="80" fill="#00f3ff" class="p-glow"/>
+     <text x="20" y="45" font-family="Arial, sans-serif" font-size="10" fill="#8b949e" letter-spacing="1">TOTAL TRAFFIC</text>
+     <text x="20" y="80" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#ffffff" class="t-glow">3</text>
+     <text x="140" y="80" font-family="monospace" font-size="12" fill="#00f3ff">VIEWs</text>
+  </g>
+
+  <!-- Right Module: Live Chart -->
+  <g>
+    <text x="450" y="35" font-family="monospace" font-size="10" fill="#8b949e">ACTIVITY_WAVEFORM (14 DAYS)</text>
+    <!-- Chart Axis -->
+    <line x1="450" y1="90" x2="750" y2="90" stroke="#30363d" stroke-width="1"/>
+    
+    <!-- The Graph Line -->
+    <polyline points="450,85 750,80 " fill="none" stroke="#bd00ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="p-glow">
+        <animate attributeName="stroke-dasharray" from="0, 1000" to="1000, 0" dur="2s" fill="freeze" />
+    </polyline>
+    
+    <!-- Area under curve (optional opacity) -->
+    <polyline points="450,90 450,85 750,80  750,90" fill="url(#gradChart)" opacity="0.2"/>
+  </g>
+
+  <!-- Gradients -->
   <defs>
-    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00f3ff" stroke-width="0.5" stroke-opacity="0.1"/>
-    </pattern>
-    <linearGradient id="scan-gradient" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00f3ff" stop-opacity="0" />
-      <stop offset="50%" stop-color="#00f3ff" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#00f3ff" stop-opacity="0" />
+    <linearGradient id="gradChart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bd00ff"/>
+      <stop offset="100%" stop-color="#bd00ff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  <rect x="2" y="2" width="316" height="56" fill="url(#grid)" />
 
-  <!-- Scanning Line Animation -->
-  <rect x="2" y="2" width="316" height="56" fill="url(#scan-gradient)" style="animation: scan 3s linear infinite; mask: url(#mask-layer);" />
+  <!-- Decorative Corners -->
+  <path d="M10 10 L30 10 L10 30 Z" fill="#00f3ff" opacity="0.5"/>
+  <path d="M790 110 L770 110 L790 90 Z" fill="#bd00ff" opacity="0.5"/>
 
-  <!-- Main HUD Border -->
-  <path d="M 10 2 L 310 2 L 318 10 L 318 50 L 310 58 L 10 58 L 2 50 L 2 10 Z" stroke="#00f3ff" stroke-width="1" fill="none" class="border-glow" stroke-opacity="0.6"/>
-  
-  <!-- Decor elements -->
-  <rect x="0" y="20" width="2" height="20" fill="#00f3ff" class="border-glow"/>
-  <rect x="318" y="20" width="2" height="20" fill="#00f3ff" class="border-glow"/>
-  <rect x="20" y="55" width="60" height="2" fill="#00f3ff" fill-opacity="0.5"/>
-
-  <!-- AI Core Status -->
-  <circle cx="25" cy="30" r="3" fill="#00f3ff" style="animation: pulse 2s infinite"/>
-  <circle cx="25" cy="30" r="6" stroke="#00f3ff" stroke-width="1" stroke-opacity="0.5"/>
-  <text x="38" y="33" font-family="Consolas, Monaco, monospace" font-size="10" fill="#00f3ff" fill-opacity="0.7">SYSTEM.ACTIVE</text>
-
-  <!-- Data Readout -->
-  <g font-family="Consolas, Monaco, monospace" font-weight="bold">
-    <!-- Label -->
-    <text x="190" y="20" font-size="9" fill="#00f3ff" fill-opacity="0.5" text-anchor="end">TRAFFIC_LOG</text>
-    
-    <!-- Views Number -->
-    <text x="295" y="30" font-size="20" fill="#fff" text-anchor="end" class="text-glow">3</text>
-    <text x="295" y="45" font-size="10" fill="#00f3ff" fill-opacity="0.8" text-anchor="end">UNIQUES: 2</text>
-  </g>
-  
-  <!-- Tiny decorative random hex -->
-  <text x="140" y="52" font-family="Consolas, monospace" font-size="8" fill="#00f3ff" fill-opacity="0.3">0x334116</text>
 </svg>
