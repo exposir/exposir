@@ -33,7 +33,6 @@
 
 <div align="center">
   <h3>📊 GitHub Stats (3D)</h3>
-  <p><em>(Data is updating... trigger the action to see the magic!)</em></p>
   <img src="./profile-3d-contrib/profile-night-rainbow.svg" alt="3D Contribution Graph" />
 </div>
 
