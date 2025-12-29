@@ -50,51 +50,85 @@ function githubRequest(endpoint) {
   });
 }
 
-// Helper: Generate SVG Badge (Modern Cosmic Style)
+// Helper: Generate SVG Badge (Cyberpunk AI HUD Style)
 function generateSVG(totalViews, totalUniques) {
-  const width = 280;
-  const height = 45;
+  const width = 320;
+  const height = 60;
   
-  // Format numbers (e.g. 1.2k)
   const format = (n) => n >= 1000 ? (n / 1000).toFixed(1) + 'k' : n;
-  
   const viewsText = format(totalViews);
   const uniquesText = format(totalUniques);
 
+  // Randomize a "CPU Load" number for extra sci-fi feel
+  const cpuLoad = Math.floor(Math.random() * 30) + 40; 
+
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Glow Effect -->
-  <rect width="${width}" height="${height}" rx="8" fill="#0D1117" stroke="#2c2c2c" stroke-width="1"/>
-  <rect x="1" y="1" width="${width-2}" height="${height-2}" rx="7" fill="url(#cosmic_gradient)" />
+  <style>
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0.2; }
+    }
+    .text-glow {
+      text-shadow: 0 0 2px #00f3ff, 0 0 5px #00f3ff;
+    }
+    .border-glow {
+      filter: drop-shadow(0 0 2px #00f3ff);
+    }
+  </style>
+
+  <!-- Background Base -->
+  <rect x="2" y="2" width="${width-4}" height="${height-4}" fill="#050a10" stroke="none" />
   
-  <!-- Gradient Definition -->
+  <!-- Holographic Grid Pattern -->
   <defs>
-    <linearGradient id="cosmic_gradient" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#161b22"/>
-      <stop offset="1" stop-color="#0d1117"/>
-    </linearGradient>
-    <linearGradient id="text_gradient" x1="0" y1="0" x2="0" y2="100%">
-      <stop offset="0" stop-color="#e0e0e0"/>
-      <stop offset="1" stop-color="#ffffff"/>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00f3ff" stroke-width="0.5" stroke-opacity="0.1"/>
+    </pattern>
+    <linearGradient id="scan-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00f3ff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#00f3ff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#00f3ff" stop-opacity="0" />
     </linearGradient>
   </defs>
+  <rect x="2" y="2" width="${width-4}" height="${height-4}" fill="url(#grid)" />
 
-  <!-- Eye Icon -->
-  <path d="M22 22.5C22 22.5 27 13 38 13C49 13 54 22.5 54 22.5C54 22.5 49 32 38 32C27 32 22 22.5 22 22.5Z" stroke="#8B949E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 26C39.933 26 41.5 24.433 41.5 22.5C41.5 20.567 39.933 19 38 19C36.067 19 34.5 20.567 34.5 22.5C34.5 24.433 36.067 26 38 26Z" stroke="#8B949E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Scanning Line Animation -->
+  <rect x="2" y="2" width="${width-4}" height="${height-4}" fill="url(#scan-gradient)" style="animation: scan 3s linear infinite; mask: url(#mask-layer);" />
 
-  <!-- Divider -->
-  <line x1="70" y1="10" x2="70" y2="35" stroke="#30363d" stroke-width="1"/>
+  <!-- Main HUD Border -->
+  <path d="M 10 2 L ${width-10} 2 L ${width-2} 10 L ${width-2} ${height-10} L ${width-10} ${height-2} L 10 ${height-2} L 2 ${height-10} L 2 10 Z" stroke="#00f3ff" stroke-width="1" fill="none" class="border-glow" stroke-opacity="0.6"/>
+  
+  <!-- Decor elements -->
+  <rect x="0" y="20" width="2" height="20" fill="#00f3ff" class="border-glow"/>
+  <rect x="${width-2}" y="20" width="2" height="20" fill="#00f3ff" class="border-glow"/>
+  <rect x="20" y="${height-5}" width="60" height="2" fill="#00f3ff" fill-opacity="0.5"/>
 
-  <!-- Labels & Numbers -->
-  <g font-family="'Segoe UI', Ubuntu, Sans-Serif" font-weight="600">
-    <!-- Total Views -->
-    <text x="85" y="19" font-size="10" fill="#8b949e">TOTAL VIEWS</text>
-    <text x="85" y="34" font-size="16" fill="url(#text_gradient)">${viewsText}</text>
+  <!-- AI Core Status -->
+  <circle cx="25" cy="30" r="3" fill="#00f3ff" style="animation: pulse 2s infinite"/>
+  <circle cx="25" cy="30" r="6" stroke="#00f3ff" stroke-width="1" stroke-opacity="0.5"/>
+  <text x="38" y="33" font-family="Consolas, Monaco, monospace" font-size="10" fill="#00f3ff" fill-opacity="0.7">SYSTEM.ACTIVE</text>
+
+  <!-- Data Readout -->
+  <g font-family="Consolas, Monaco, monospace" font-weight="bold">
+    <!-- Label -->
+    <text x="${width - 130}" y="20" font-size="9" fill="#00f3ff" fill-opacity="0.5" text-anchor="end">TRAFFIC_LOG</text>
     
-    <!-- Uniques -->
-    <text x="180" y="19" font-size="10" fill="#8b949e">UNIQUES</text>
-    <text x="180" y="34" font-size="16" fill="#58a6ff">${uniquesText}</text>
+    <!-- Views Number -->
+    <text x="${width - 25}" y="30" font-size="20" fill="#fff" text-anchor="end" class="text-glow">${viewsText}</text>
+    <text x="${width - 25}" y="45" font-size="10" fill="#00f3ff" fill-opacity="0.8" text-anchor="end">UNIQUES: ${uniquesText}</text>
   </g>
+  
+  <!-- Tiny decorative random hex -->
+  <text x="140" y="52" font-family="Consolas, monospace" font-size="8" fill="#00f3ff" fill-opacity="0.3">0x${Math.floor(Math.random()*16777215).toString(16).toUpperCase()}</text>
 </svg>`;
 }
 
