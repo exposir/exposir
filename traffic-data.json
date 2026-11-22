@@ -1,6 +1,6 @@
 {
-  "total_views": 125,
-  "total_uniques": 46,
+  "total_views": 127,
+  "total_uniques": 48,
   "daily": {
     "2025-12-22": {
       "views": 1,
@@ -1361,7 +1361,15 @@
     "2026-11-19": {
       "views": 0,
       "uniques": 0
+    },
+    "2026-11-20": {
+      "views": 0,
+      "uniques": 0
+    },
+    "2026-11-21": {
+      "views": 2,
+      "uniques": 2
     }
   },
-  "updated_at": "2026-11-21T22:30:51.554Z"
+  "updated_at": "2026-11-22T22:54:17.132Z"
 }
